@@ -1,0 +1,74 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<style>
+    h2{
+        text-align: center;
+    }
+</style>
+
+<div class="container mt-4">
+    <h2><strong>Certificar Documento</strong></h2>
+    <form class="align-items-start" method="POST" action="/uploud" enctype="multipart/form-data">                
+            <div class="form-row justify-content-center align-items-start">
+                <div class="col-md-8 ml-2 custom-file mb-3 mt-4">
+                    <input type="file" class="custom-file-input" name="file" id="file" accept=".pdf" required>
+                    <label class="custom-file-label" for="file">Upload do Documento (.pdf)</label>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="mt-4" for="tipo_documento"> Tipo de Documento</label>
+                    <select class="form-control" name="tipo_documento" id="tipo_documento" required>
+                        <option selected="selected" value="private">Privado</option>
+                        <option value="public">Público</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3 ml-2">
+                    <label for="processo" class="form-control-label text-center mt-4"> Numero do Processo</label>
+                    <input class="form-control" name='process' id='process' type="input" aria-describedby="emailHelp" placeholder="Numero  do Processo" required>
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <label class="mt-4" for="tipo_documento"> Remetente</label>
+                    <select class="form-control" name="sender" id="sender" disabled="disabled" required>
+                        <option selected="selected" value="">DACC - UNIR</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-4 mb-3 ml-2">
+                    <label class="mt-4" for="tipo_documento"> Escolha o Destinatário</label>
+                    <select class="form-control" name="receiver" id="receiver" required>
+                        <option selected="selected" value="Nucleo de Tecnologia(NT) - UNIR">NT - UNIR</option>
+                        <option value="DECIV - UNIR">DECIV - UNIR</option>
+                        <option value="DEE - UNIR">DEE - UNIR</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-4 mb-3">
+                    <label for="username" class="form-control-label text-center mt-4"> Nome Completo</label>
+                    <input class="form-control" name='name' id='name' type="input" aria-describedby="emailHelp" placeholder="Nome Completo" required>
+                </div>
+                
+                <div class="col-md-4 mb-3 ml-2">
+                    <label for="id" class="form-control-label text-center mt-4"> ID</label>
+                    <input class="form-control" name='id' id='id' type="input" aria-describedby="emailHelp" placeholder="ID" required>
+                </div>
+            </div>
+            
+            <div class="align-items-center text-center mt-4">
+                <button class="btn btn-primary mt-4" type="submit" name="submit"><i class="fa fa-cogs" aria-hidden="true"></i> Adicionar Transação do Documento</button>
+            </div>
+        </form>
+    </div>
+
+<script>
+
+    document.querySelector('.custom-file-input').addEventListener("input", function(){
+        var filename = document.querySelector('#file').value;
+        var label = document.querySelector('.custom-file-label');
+        label.innerHTML = filename;
+    });    
+
+</script>
+
+{% endblock %}

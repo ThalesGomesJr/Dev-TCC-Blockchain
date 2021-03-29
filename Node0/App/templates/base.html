@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Blockchain</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-light bg-primary">
+            <img src="/static/img/unir.png" class="col-md-2 col-sm-3 ml-5">
+            <h5 class="text-white p-3">Blockchain Para Certificação de Documentos e Processos Eletrônicos</h5>
+            <h5 class="text-white p-3"><strong> Núcleu de Tecnologia (NT)</strong></h5>
+        </nav>
+        
+        <nav class="container-fluid jumbotron pt-1 pb-0 pl-0 mb-2">
+            <nav class="container">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link text-dark border-right {{ actindex }}" id="index" data-toggle="tab" href="{{ url_for('home') }}" role="tab" aria-controls="index" aria-selected="true">Home</a>
+              </div>
+            </nav>
+        </nav>
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %} 
+        {% if messages %}
+            <ul class=flashes>
+                {% for category, message in messages %}
+                    <li class="alert alert-{{category}} mr-4" style="list-style:none" role="alert">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %} 
+    {% endwith %} 
+
+    {% block content %}
+    {% endblock %}
+    
+    <div class="text-muted text-center py-3 mt-5">
+        <p class="m-0 small">Desenvolvido por:</p>
+        <p class="m-0 small">Thales Junior de Souza Gomes</p>
+    </div>
+
+</body>
