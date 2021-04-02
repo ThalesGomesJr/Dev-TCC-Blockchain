@@ -31,7 +31,7 @@ Crie e ative o ambiente virtual
 
 Instale as dependências do Projeto
 ```
-> pip install -r requirements.txt
+> pip install -r requeriments.txt
 ```
 
 Navegue até a pasta do socket e execute o comando
